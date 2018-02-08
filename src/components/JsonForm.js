@@ -1,20 +1,20 @@
 import React from 'react'
 import Form from "react-jsonschema-form";
 import pure from "recompose/pure";
+import PropTypes from "prop-types";
 
-const schema = {
-  title: "Todo",
-  type: "object",
-  required: ["title"],
-  properties: {
-    title: {type: "string", title: "Title", default: "A new task"},
-    done: {type: "boolean", title: "Done?", default: false}
-  }
-};
 
 const log = (type) => console.log.bind(console, type);
 
-function JsonForm() {
+function JsonForm({schema, form}) {
+  if (form.singleResource == null) {
+    return null;
+  } else if (form.fetching) {
+    return <div>Loading...</div>;
+  } else if (form.length === 0) {
+    return <div>None</div>;
+  }
+
   return (
     <Form schema={schema}
           onChange={log("changed")}
@@ -22,5 +22,21 @@ function JsonForm() {
           onError={log("errors")}/>
   )
 }
+
+JsonForm.propTypes = {
+  form: PropTypes.shape({
+    resources: PropTypes.array,
+    fetching: PropTypes.bool,
+    fetched: PropTypes.bool,
+    error: PropTypes.object,
+    singleResource: PropTypes.object,
+  }).isRequired,
+  schema: PropTypes.shape({
+    title: PropTypes.string,
+    type: PropTypes.string,
+    required: PropTypes.array,
+    properties: PropTypes.object,
+  }).isRequired,
+};
 
 export default pure(JsonForm)

@@ -33,15 +33,46 @@ class FhirFormContainer extends React.Component {
 
   componentDidMount = () => {
     this.props.loadForm('http://hapi.fhir.org/baseDstu3/', 'Questionnaire', 'sickKids', '3')
+
+  };
+
+
+  componentWillReceiveProps = () => {
+
+
+  };
+
+  schema = {
+    title: "Form",
+    type: "object",
+    required: ["title"],
+    properties: {
+      title: {type: "string", title: "Title", default: "A new task"},
+      done: {type: "boolean", title: "Done?", default: false}
+    }
   };
 
   render() {
+
+    if (this.props.fhirform.fetched) {
+      const items = this.props.fhirform.singleResource.item;
+      console.log(items);
+      items.forEach((item) => {
+        const buff = item;
+        buff.title = item.text;
+        this.schema.properties[item.linkId] = buff
+      })
+    }
+
     return (
 
       <div><FhirForm
         form={this.props.fhirform}
       />
-        <JsonForm/>
+        <JsonForm
+          form={this.props.fhirform}
+          schema={this.schema}
+        />
       </div>
 
     )
