@@ -5,20 +5,33 @@ import {createSelector, createStructuredSelector} from 'reselect'
 
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import * as FhirFormActions from 'actions/fhirform'
+import * as FhirFormActions from '../actions/fhirformAction'
 
 class FhirFormContainer extends React.Component {
   static propTypes = {
     loadForm: PropTypes.func.isRequired,
-    fhirform: PropTypes.shape({}),
+    fhirform: PropTypes.shape({
+      resources: PropTypes.array,
+      fetching: PropTypes.bool,
+      fetched: PropTypes.bool,
+      error: PropTypes.object,
+      singleResource: PropTypes.object,
+    }),
   };
 
   static defaultProps = {
-    fhirform: {}
+    fhirform: {
+      resources: [],
+      fetching: false,
+      fetched: false,
+      error: null,
+      singleResource: null,
+    }
   };
 
-  loadForm = () => {
-    this.props.loadForm()
+
+  componentDidMount = () => {
+    this.props.loadForm('Questionnaire', 'sickKids', '3')
   };
 
   render() {
