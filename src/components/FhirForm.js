@@ -6,6 +6,14 @@ import styled from 'styled-components'
 const Intro = styled.p`font-size: large;`;
 
 function FhirForm({form}) {
+  if (form.singleResource == null) {
+    return null;
+  } else if (form.fetching) {
+    return <div>Loading...</div>;
+  } else if (form.length === 0) {
+    return <div>None</div>;
+  }
+
   return (
     <section>
       <Intro>
@@ -13,10 +21,11 @@ function FhirForm({form}) {
         and save to reload.
       </Intro>
       <p>
-        {form.fetched}
+        {form.singleResource.id}
       </p>
     </section>
   )
+
 }
 
 FhirForm.propTypes = {

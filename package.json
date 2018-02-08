@@ -16,6 +16,7 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-devtools-extension": "^2.13.2",
+    "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "styled-components": "^2.3.0"
@@ -34,7 +35,8 @@
     "lint-staged": "^4.3.0",
     "node-plop": "^0.5.5",
     "plop": "^1.7.4",
-    "prettier": "^1.8.0"
+    "prettier": "^1.8.0",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
