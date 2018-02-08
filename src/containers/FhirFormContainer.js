@@ -6,6 +6,7 @@ import {createSelector, createStructuredSelector} from 'reselect'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as FhirFormActions from '../actions/fhirformAction'
+import JsonForm from "../components/JsonForm";
 
 class FhirFormContainer extends React.Component {
   static propTypes = {
@@ -36,9 +37,13 @@ class FhirFormContainer extends React.Component {
 
   render() {
     return (
-      <FhirForm
+
+      <div><FhirForm
         form={this.props.fhirform}
       />
+        <JsonForm/>
+      </div>
+
     )
   }
 }
