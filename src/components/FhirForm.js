@@ -17,8 +17,8 @@ function FhirForm({form}) {
   return (
     <section>
       <Intro>
-        To get started, edit <code>src/routes/index.js </code>
-        and save to reload.
+        {form.singleResource.name}<br/>
+        {form.singleResource.publisher}
       </Intro>
       <p>
         {form.singleResource.id}

@@ -14,8 +14,8 @@ export default class crudService {
   //   return fhirServer.post(url, resource);
   // }
   //
-  static getResource(url, _id, _version) {
-    return fhirServer.get(`${url}/${_id}/_history/${_version}?_format=json`);
+  static getResource(baseUrl, uri, _id, _version) {
+    return fhirServer.get(`${baseUrl}${uri}/${_id}/_history/${_version}?_format=json`);
   }
 
   // updateResource(url, resource) {
