@@ -43,12 +43,10 @@ class FhirFormContainer extends React.Component {
   };
 
   schema = {
-    title: "Form",
+    title: "",
     type: "object",
-    required: ["title"],
+    required: [],
     properties: {
-      title: {type: "string", title: "Title", default: "A new task"},
-      done: {type: "boolean", title: "Done?", default: false}
     }
   };
 
@@ -60,6 +58,10 @@ class FhirFormContainer extends React.Component {
       items.forEach((item) => {
         const buff = item;
         buff.title = item.text;
+        if (item.type === 'text')
+          buff.type = 'string';
+        if (item.type === 'open-choice')
+          buff.type = 'string';
         this.schema.properties[item.linkId] = buff
       })
     }

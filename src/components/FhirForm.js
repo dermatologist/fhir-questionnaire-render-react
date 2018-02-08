@@ -20,9 +20,6 @@ function FhirForm({form}) {
         {form.singleResource.name}<br/>
         {form.singleResource.publisher}
       </Intro>
-      <p>
-        {form.singleResource.id}
-      </p>
     </section>
   )
 
