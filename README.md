@@ -1,7 +1,11 @@
 # Fhir Questionnaire Render React
 [![generator-create-redux-app](https://img.shields.io/badge/built%20with-generator--create--redux--app-brightgreen.svg)](https://github.com/jonidelv/generator-create-redux-app)
 
-## Work in progress
+![FHIR Render Questionnaire](https://raw.github.com/dermatologist/fhir-questionnaire-render-react/develop/docs/fhir-render.png)
+
+This is a FHIR Questionnaire form rendering engine using react and redux. This is still work in progress. A helping hand would be greatly appreciated. 
+
+We use  react-jsonschema-form ( https://github.com/mozilla-services/react-jsonschema-form ) for form rendering.
 
 This project was generated with [Create Redux App](https://github.com/jonidelv/generator-create-redux-app). Refer to `docs/create-redux-app` to find more information on how to perform common tasks.
 
