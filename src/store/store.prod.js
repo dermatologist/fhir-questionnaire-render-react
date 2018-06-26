@@ -1,7 +1,7 @@
 import {applyMiddleware, createStore} from 'redux'
 import ReduxThunk from 'redux-thunk'
-import rootReducer from 'reducers'
 import promiseMiddleware from 'redux-promise-middleware';
+import rootReducer from '../reducers'
 
 const middlewares = [ReduxThunk, promiseMiddleware()];
 const enhancer = [applyMiddleware(...middlewares)];

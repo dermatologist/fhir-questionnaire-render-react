@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {FhirForm} from 'components'
 import {createSelector, createStructuredSelector} from 'reselect'
 
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as FhirFormActions from '../actions/fhirformAction'
 import JsonForm from "../components/JsonForm";
+import {FhirForm} from '../components'
 
 class FhirFormContainer extends React.Component {
   static propTypes = {

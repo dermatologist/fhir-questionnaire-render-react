@@ -1,8 +1,8 @@
 import React from 'react'
-import {CounterContainer, FhirFormContainer} from 'containers'
-import {Header} from 'components'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import styled from 'styled-components'
+import {CounterContainer, FhirFormContainer} from '../containers'
+import {Header} from '../components'
 
 const Container = styled.div`text-align: center;`;
 
