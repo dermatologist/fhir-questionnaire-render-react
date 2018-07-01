@@ -78,7 +78,7 @@ class FhirFormContainer extends React.Component {
           buff.type = 'string';
         if (item.type === 'open-choice')
           buff.type = 'string';
-        this.schema.properties[item.linkId] = buff
+        this.schema.properties[buff.linkId] = buff
       })
     }
 

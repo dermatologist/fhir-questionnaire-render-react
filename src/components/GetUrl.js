@@ -10,6 +10,7 @@ function GetUrl({getUrlSubmit, getUrlChange}) {
         <input type="text" onChange={getUrlChange}/>
         <input type="submit" value="Submit"/>
       </form>
+      <small>Use http://hapi.fhir.org/baseDstu3/Questionnaire/sickKids/_history/3?_format=json for testing.</small>
     </section>
   )
 }
