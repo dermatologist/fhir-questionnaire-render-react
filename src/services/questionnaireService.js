@@ -7,4 +7,8 @@ export default class questionnaireService {
     return crudService.getResource(_base, _url, _id, _version);
   }
 
+  static getQuestionnaireFromUrl(_url) {
+    return crudService.getResourceFromUrl(_url);
+  }
+
 }
