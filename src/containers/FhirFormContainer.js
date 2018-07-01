@@ -6,11 +6,13 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as FhirFormActions from '../actions/fhirformAction'
 import JsonForm from "../components/JsonForm";
-import {FhirForm} from '../components'
+import {FhirForm} from '../components';
+import GetUrl from '../components/GetUrl';
 
 class FhirFormContainer extends React.Component {
   static propTypes = {
     loadForm: PropTypes.func.isRequired,
+    loadFormFromUrl: PropTypes.func.isRequired,
     fhirform: PropTypes.shape({
       resources: PropTypes.array,
       fetching: PropTypes.bool,
@@ -27,12 +29,12 @@ class FhirFormContainer extends React.Component {
       fetched: false,
       error: null,
       singleResource: null,
-    }
+    },
   };
 
 
   componentDidMount = () => {
-    this.props.loadForm('http://hapi.fhir.org/baseDstu3/', 'Questionnaire', 'sickKids', '3')
+    // this.props.loadForm('http://hapi.fhir.org/baseDstu3/', 'Questionnaire', 'sickKids', '3')
 
   };
 
@@ -41,6 +43,20 @@ class FhirFormContainer extends React.Component {
 
 
   };
+
+  geturlchange = (event) => {
+    console.log(event.target.value);
+    // this.props.geturltext = event.target.value;
+    this.setState({value: event.target.value});
+  };
+
+  geturlsubmit = (event) => {
+    // alert('A name was submitted: ' + this.state.value);
+    // this.props.loadFormFromUrl(this.props.geturltext)
+    this.props.loadFormFromUrl(this.state.value);
+    event.preventDefault();
+  };
+
 
   schema = {
     title: "",
@@ -68,7 +84,13 @@ class FhirFormContainer extends React.Component {
 
     return (
 
-      <div><FhirForm
+      <div>
+        <GetUrl
+          getUrlSubmit={this.geturlsubmit}
+          getUrlChange={this.geturlchange}
+
+        />
+        <FhirForm
         form={this.props.fhirform}
       />
         <JsonForm
