@@ -8,6 +8,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-jsonschema-form": "^1.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.0.17",
@@ -15,9 +16,11 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-devtools-extension": "^2.13.2",
+    "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "styled-components": "^2.3.0"
+    "styled-components": "^2.3.0",
+    "fhirformjs": "github:dermatologist/fhirformjs#master"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.12.0",
@@ -33,7 +36,8 @@
     "lint-staged": "^4.3.0",
     "node-plop": "^0.5.5",
     "plop": "^1.7.4",
-    "prettier": "^1.8.0"
+    "prettier": "^1.8.0",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
