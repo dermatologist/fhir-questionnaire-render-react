@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {createSelector, createStructuredSelector} from 'reselect'
-
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+
+import fhirformjs from 'fhirformjs'
+
 import * as FhirFormActions from '../actions/fhirformAction'
 import JsonForm from "../components/JsonForm";
 import {FhirForm} from '../components';
@@ -69,16 +71,10 @@ class FhirFormContainer extends React.Component {
   render() {
 
     if (this.props.fhirform.fetched) {
-      const items = this.props.fhirform.singleResource.item;
-      console.log(items);
+      // This is where the fhirformjs npm module is loaded
+      const items = fhirformjs.fhirformjs(this.props.fhirform.singleResource);
       items.forEach((item) => {
-        const buff = item;
-        buff.title = item.text;
-        if (item.type === 'text')
-          buff.type = 'string';
-        if (item.type === 'open-choice')
-          buff.type = 'string';
-        this.schema.properties[buff.linkId] = buff
+        this.schema.properties[item.linkId] = item;
       })
     }
 
