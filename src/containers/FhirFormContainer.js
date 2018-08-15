@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {createSelector, createStructuredSelector} from 'reselect'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import React from "react";
+import PropTypes from "prop-types";
+import { createSelector, createStructuredSelector } from "reselect";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import fhirformjs from 'fhirformjs'
+import fhirformjs from "fhirformjs";
 
-import * as FhirFormActions from '../actions/fhirformAction'
+import * as FhirFormActions from "../actions/fhirformAction";
 import JsonForm from "../components/JsonForm";
-import {FhirForm} from '../components';
-import GetUrl from '../components/GetUrl';
+import { FhirForm } from "../components";
+import GetUrl from "../components/GetUrl";
 
 class FhirFormContainer extends React.Component {
   static propTypes = {
@@ -73,9 +73,10 @@ class FhirFormContainer extends React.Component {
     if (this.props.fhirform.fetched) {
       // This is where the fhirformjs npm module is loaded
       const items = fhirformjs.fhirformjs(this.props.fhirform.singleResource);
-      items.forEach((item) => {
-        this.schema.properties[item.linkId] = item;
-      })
+      // items.forEach((item) => {
+      //   this.schema.properties[item.linkId] = item;
+      // })
+      this.schema = items.schema;
     }
 
     return (
