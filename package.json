@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "author": "Bell Eapen",
   "dependencies": {
+    "@jsonforms/core": "^2.0.7",
+    "@jsonforms/material-renderers": "^2.0.7",
     "axios": "^0.17.1",
     "fhirformjs": "github:dermatologist/fhirformjs#develop",
     "prop-types": "^15.6.0",
