@@ -11,9 +11,9 @@ export function loadFormFromUrl(_uri) {
   return {type: LOAD_FORM, payload: questionnaireService.getQuestionnaireFromUrl(_uri)};
 }
 
-export function renderForm(_data, _schema, _ui) {
+export function renderForm(_data, _schema) {
   return (dispatch) => {
 
-    dispatch(Actions.init(_data, _schema, _ui));
+    dispatch(Actions.init(_data, _schema));
   };
 }

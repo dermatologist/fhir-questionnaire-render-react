@@ -8,7 +8,6 @@ import fhirformjs from "fhirformjs";
 import { JsonForms } from "@jsonforms/react";
 
 import * as FhirFormActions from "../actions/fhirformAction";
-import JsonForm from "../components/JsonForm";
 import { FhirForm } from "../components";
 import GetUrl from "../components/GetUrl";
 
@@ -78,7 +77,7 @@ class FhirFormContainer extends React.Component {
       // })
       this.props.fhirform.schema = items.schema;
       this.props.fhirform.ui = items.ui;
-      this.props.renderForm(this.props.fhirform.data, this.props.fhirform.schema, this.props.fhirform.ui);
+      this.props.renderForm({}, this.props.fhirform.schema, this.props.fhirform.ui);
     }
 
     return (
@@ -92,11 +91,8 @@ class FhirFormContainer extends React.Component {
         />
         <FhirForm
         form={this.props.fhirform}
-      />
-        <JsonForm
-          form={this.props.fhirform}
-          schema={this.props.fhirform.schema}
         />
+
 
         <JsonForms/>
       </div>
