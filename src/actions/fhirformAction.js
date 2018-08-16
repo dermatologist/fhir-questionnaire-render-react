@@ -11,9 +11,11 @@ export function loadFormFromUrl(_uri) {
   return {type: LOAD_FORM, payload: questionnaireService.getQuestionnaireFromUrl(_uri)};
 }
 
-export function renderForm(_data, _schema) {
+export function renderForm(_data, _schema, _ui = null) {
   return (dispatch) => {
-
-    dispatch(Actions.init(_data, _schema));
+  	if(_ui === null || _ui === undefined)
+    	dispatch(Actions.init(_data, _schema));
+    else
+    	dispatch(Actions.init(_data, _schema, _ui));
   };
 }

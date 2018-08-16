@@ -9,8 +9,9 @@ injectGlobal`
   }
 
   body {
-    margin: 0;
-    padding: 0;
+    font-size: 16px;
+    margin: 20px;
+    padding: 25px;
     font-family: sans-serif;
   }
 `
