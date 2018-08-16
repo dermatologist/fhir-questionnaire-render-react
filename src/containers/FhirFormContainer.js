@@ -24,8 +24,11 @@ class FhirFormContainer extends React.Component {
       singleResource: PropTypes.object,
       schema: PropTypes.object,
       ui: PropTypes.object,
-      data: PropTypes.object
     }),
+    formdata: PropTypes.shape({
+      data: PropTypes.object
+    })
+
   };
 
   static defaultProps = {
@@ -39,6 +42,9 @@ class FhirFormContainer extends React.Component {
       data: {},
       ui: null
     },
+    formdata: {
+      data: {}
+    }
   };
 
 
@@ -77,7 +83,7 @@ class FhirFormContainer extends React.Component {
       // })
       this.props.fhirform.schema = items.schema;
       this.props.fhirform.ui = items.ui;
-      this.props.renderForm({}, this.props.fhirform.schema, this.props.fhirform.ui);
+      this.props.renderForm(this.props.formdata.data, this.props.fhirform.schema, this.props.fhirform.ui);
     }
 
     return (
