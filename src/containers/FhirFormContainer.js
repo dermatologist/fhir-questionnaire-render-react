@@ -27,7 +27,7 @@ class FhirFormContainer extends React.Component {
     }),
     formdata: PropTypes.shape({
       data: PropTypes.object
-    })
+    }),
 
   };
 
@@ -71,6 +71,11 @@ class FhirFormContainer extends React.Component {
     event.preventDefault();
   };
 
+  handleSubmit = (event) => {
+
+    event.preventDefault();
+  };
+
 
 
   render() {
@@ -101,6 +106,12 @@ class FhirFormContainer extends React.Component {
 
 
         <JsonForms/>
+
+        <button
+          className="btn btn-default"
+          onClick={this.handleSubmit}>Submit Form
+        </button>
+
       </div>
 
     )
