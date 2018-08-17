@@ -25,6 +25,14 @@ class FhirFormContainer extends React.Component {
       schema: PropTypes.object,
       ui: PropTypes.object,
     }),
+    jsonforms: PropTypes.shape({
+      config: PropTypes.object,
+      core: PropTypes.object,
+      fields: PropTypes.array,
+      renderers: PropTypes.array,
+      uischem: PropTypes.object
+
+    }),
     formdata: PropTypes.shape({
       data: PropTypes.object
     }),
@@ -42,9 +50,16 @@ class FhirFormContainer extends React.Component {
       data: {},
       ui: null
     },
+    jsonforms: {
+      config: {},
+      core: {},
+      fields: [],
+      renderers: [],
+      uischema: {}
+    },
     formdata: {
       data: {}
-    }
+    },
   };
 
 
@@ -72,7 +87,11 @@ class FhirFormContainer extends React.Component {
   };
 
   handleSubmit = (event) => {
-
+    // By reference: needs to change
+    const questionnaireResponse = this.props.fhirform.singleResource;
+    questionnaireResponse.resourceType = "QuestionnaireResponse";
+    console.log(questionnaireResponse);
+    console.log();
     event.preventDefault();
   };
 
@@ -82,12 +101,12 @@ class FhirFormContainer extends React.Component {
 
     if (this.props.fhirform.fetched) {
       // This is where the fhirformjs npm module is loaded
-      const items = fhirformjs.fhirformjs(this.props.fhirform.singleResource);
+      const jsonform = fhirformjs.fhirformjs(this.props.fhirform.singleResource);
       // items.forEach((item) => {
       //   this.schema.properties[item.linkId] = item;
       // })
-      this.props.fhirform.schema = items.schema;
-      this.props.fhirform.ui = items.ui;
+      this.props.fhirform.schema = jsonform.schema;
+      this.props.fhirform.ui = jsonform.ui;
       this.props.renderForm(this.props.formdata.data, this.props.fhirform.schema, this.props.fhirform.ui);
     }
 
@@ -125,6 +144,7 @@ const mapStateToProps = createStructuredSelector({
     // https://github.com/reactjs/reselect#motivation-for-memoized-selectors
   ),
 });
+
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(FhirFormActions, dispatch)
