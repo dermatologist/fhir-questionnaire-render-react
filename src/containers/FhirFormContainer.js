@@ -16,6 +16,7 @@ class FhirFormContainer extends React.Component {
     // loadForm: PropTypes.func.isRequired,
     renderForm: PropTypes.func.isRequired,
     loadFormFromUrl: PropTypes.func.isRequired,
+    handleSubmitAction: PropTypes.func.isRequired,
     fhirform: PropTypes.shape({
       resources: PropTypes.array,
       fetching: PropTypes.bool,
@@ -24,14 +25,6 @@ class FhirFormContainer extends React.Component {
       singleResource: PropTypes.object,
       schema: PropTypes.object,
       ui: PropTypes.object,
-    }),
-    jsonforms: PropTypes.shape({
-      config: PropTypes.object,
-      core: PropTypes.object,
-      fields: PropTypes.array,
-      renderers: PropTypes.array,
-      uischem: PropTypes.object
-
     }),
     formdata: PropTypes.shape({
       data: PropTypes.object
@@ -49,13 +42,6 @@ class FhirFormContainer extends React.Component {
       schema: {},
       data: {},
       ui: null
-    },
-    jsonforms: {
-      config: {},
-      core: {},
-      fields: [],
-      renderers: [],
-      uischema: {}
     },
     formdata: {
       data: {}
@@ -87,11 +73,8 @@ class FhirFormContainer extends React.Component {
   };
 
   handleSubmit = (event) => {
-    // By reference: needs to change
-    const questionnaireResponse = this.props.fhirform.singleResource;
-    questionnaireResponse.resourceType = "QuestionnaireResponse";
-    console.log(questionnaireResponse);
-    console.log();
+    this.props.fhirform.singleResource = "QuestionnaireResponse";
+    this.props.handleSubmitAction(this.props.fhirform.singleResource);
     event.preventDefault();
   };
 
@@ -107,6 +90,7 @@ class FhirFormContainer extends React.Component {
       // })
       this.props.fhirform.schema = jsonform.schema;
       this.props.fhirform.ui = jsonform.ui;
+      this.props.formdata.data = jsonform.data;
       this.props.renderForm(this.props.formdata.data, this.props.fhirform.schema, this.props.fhirform.ui);
     }
 
