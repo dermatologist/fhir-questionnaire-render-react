@@ -73,8 +73,9 @@ class FhirFormContainer extends React.Component {
   };
 
   handleSubmit = (event) => {
-    this.props.fhirform.singleResource = "QuestionnaireResponse";
-    this.props.handleSubmitAction(this.props.fhirform.singleResource);
+    this.props.fhirform.singleResource.resourceType = "QuestionnaireResponse";
+    const qresponse = this.props.fhirform.singleResource;
+    this.props.handleSubmitAction(qresponse);
     event.preventDefault();
   };
 

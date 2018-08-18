@@ -1,9 +1,9 @@
 ﻿import { Actions } from "@jsonforms/core";
-import { LOAD_FORM } from "../constants/ActionTypes";
+import { LOAD_FORM, SUBMIT_FORM } from "../constants/ActionTypes";
 import questionnaireService from "../services/questionnaireService";
-import configureStore from "../store/index"
+import configureStore from "../store/index";
 
-	export function loadForm(_base, _uri, _id, _version) {
+export function loadForm(_base, _uri, _id, _version) {
 	  return {type: LOAD_FORM, payload: questionnaireService.getQuestionnaire(_base, _uri, _id, _version)};
 	}
 
@@ -21,7 +21,8 @@ import configureStore from "../store/index"
 	}
 
     export function handleSubmitAction(_questionnaireResponse) {
-        let state = configureStore.getState();
-        let core_data = state.jsonforms.core;
-	  	return true;
-	}
+      let state = configureStore().getState();
+      let core_data = state.jsonforms.core.data;
+      return { type: SUBMIT_FORM, payload: questionnaireService.getQuestionnaireFromUrl("") };
+
+    }
