@@ -75,7 +75,8 @@ class FhirFormContainer extends React.Component {
   handleSubmit = (event) => {
     this.props.fhirform.singleResource.resourceType = "QuestionnaireResponse";
     const qresponse = this.props.fhirform.singleResource;
-    this.props.handleSubmitAction(qresponse);
+    // This state value has the URL to submit
+    this.props.handleSubmitAction(qresponse, this.state.value);
     event.preventDefault();
   };
 

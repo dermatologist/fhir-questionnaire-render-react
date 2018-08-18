@@ -11,4 +11,7 @@ export default class questionnaireService {
     return crudService.getResourceFromUrl(_url);
   }
 
+  static postQuestionnaireResponseToUrl(_url, _qr) {
+    return crudService.postResource(_url, _qr);
+  }
 }

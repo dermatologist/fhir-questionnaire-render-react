@@ -20,9 +20,16 @@ export function loadForm(_base, _uri, _id, _version) {
 		}
 	}
 
-    export function handleSubmitAction(_questionnaireResponse) {
-      let state = configureStore().getState();
-      let core_data = state.jsonforms.core.data;
-      return { type: SUBMIT_FORM, payload: questionnaireService.getQuestionnaireFromUrl("") };
+export function handleSubmitAction(_url, _questionnaireResponse) {
+  const state = configureStore().getState();
+  const form_data = state.jsonforms.core.data;
+
+  const qr = _questionnaireResponse;
+  const items = qr.item;
+
+  items.forEach((item) => {
+
+  });
+  return { type: SUBMIT_FORM, payload: questionnaireService.postQuestionnaireResponseToUrl(_url, qr) };
 
     }
