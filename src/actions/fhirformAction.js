@@ -1,8 +1,7 @@
 ﻿import { Actions } from "@jsonforms/core";
 import fhirformjs from "fhirformjs";
-import { LOAD_FORM, SUBMIT_FORM } from "../constants/ActionTypes";
+import { LOAD_FORM } from "../constants/ActionTypes";
 import questionnaireService from "../services/questionnaireService";
-import configureStore from "../store/index";
 
 export function loadForm(_base, _uri, _id, _version) {
 	  return {type: LOAD_FORM, payload: questionnaireService.getQuestionnaire(_base, _uri, _id, _version)};
@@ -21,12 +20,25 @@ export function renderForm(_data, _schema, _ui = null) {
 	}
 }
 
-export function handleSubmitAction(_url, _questionnaireResponse) {
-  const state = configureStore().getState();
-  const form_data = state.jsonforms.core.data;
+export function handleSubmitAction(_questionnaireResponse, _url) {
+  // https://github.com/redux-saga/redux-saga/issues/1002
 
-	// Add form data to QuestionnaireResponse
-	const qr = fhirformjs.fhirformResp(_questionnaireResponse, form_data);
-	return { type: SUBMIT_FORM, payload: questionnaireService.postQuestionnaireResponseToUrl(_url, qr) };
+  // const store = configureStore();
+  // When state will be updated(in this case, when items will be fetched), this is how we can get updated state.
+  // const items= store.getState().jsonforms.core.data;
+  // console.log(_state);
+  // const state = configureStore().getState();
+  // const formData = state.jsonforms.core.data;
+  // console.log(state.jsonforms.core);
+  // Add form data to QuestionnaireResponse
+  // const qr = fhirformjs.fhirformResp(_questionnaireResponse, formData);
+  // return { type: SUBMIT_FORM, payload: questionnaireService.postQuestionnaireResponseToUrl(_url, qr) };
+  // return { type: SUBMIT_FORM, payload: "" }
+
+  return (dispatch, getState) => {
+    const qr = fhirformjs.fhirformResp(_questionnaireResponse, getState().jsonforms.core.data);
+    questionnaireService.postQuestionnaireResponseToUrl(_url, qr);
+    console.log(getState().jsonforms.core.data);
+  };
 
 }
