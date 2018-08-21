@@ -11,7 +11,13 @@ export default class crudService {
   }
 
   static postResource(url, resource) {
-    return fhirServer.post(url, resource);
+    url = 'http://hapi.fhir.org/create'; // TODO: Change this URL
+    const to_post = {};
+    to_post.serverId = 'home';
+    to_post.resource = 'QuestionnaireResponse';
+    to_post['resource-create-id'] = '';
+    to_post['resource-create-body'] = resource;
+    return fhirServer.post(url, to_post);
   }
 
   static getResource(baseUrl, uri, _id, _version) {
