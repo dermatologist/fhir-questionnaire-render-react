@@ -12,7 +12,7 @@ export default class crudService {
 
   static postResource(url, resource) {
     // url = 'http://hapi.fhir.org/create'; // TODO: Change this URL
-    url = "../create"; // TODO: Change this URL
+    url = "/create"; // TODO: Change this URL
 
     // url = 'http://localhost:3000/';
     const toPost = {};
