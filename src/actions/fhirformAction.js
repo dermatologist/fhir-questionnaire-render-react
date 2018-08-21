@@ -23,22 +23,11 @@ export function renderForm(_data, _schema, _ui = null) {
 export function handleSubmitAction(_questionnaireResponse, _url) {
   // https://github.com/redux-saga/redux-saga/issues/1002
 
-  // const store = configureStore();
-  // When state will be updated(in this case, when items will be fetched), this is how we can get updated state.
-  // const items= store.getState().jsonforms.core.data;
-  // console.log(_state);
-  // const state = configureStore().getState();
-  // const formData = state.jsonforms.core.data;
-  // console.log(state.jsonforms.core);
-  // Add form data to QuestionnaireResponse
-  // const qr = fhirformjs.fhirformResp(_questionnaireResponse, formData);
-  // return { type: SUBMIT_FORM, payload: questionnaireService.postQuestionnaireResponseToUrl(_url, qr) };
-  // return { type: SUBMIT_FORM, payload: "" }
-
   return (dispatch, getState) => {
-    const qr = fhirformjs.fhirformResp(_questionnaireResponse, getState().jsonforms.core.data);
+	const qr = fhirformjs.fhirformResp(_questionnaireResponse, getState().jsonforms.core.data);
+	_url.replace("Questionnaire", "QuestionnaireResponse");
     questionnaireService.postQuestionnaireResponseToUrl(_url, qr);
-    console.log(getState().jsonforms.core.data);
+    console.log(getState().jsonforms.core.data); // TODO: To remove
   };
 
 }
