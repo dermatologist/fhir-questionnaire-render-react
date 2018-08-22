@@ -15,7 +15,7 @@ export default class crudService {
     url = "create"; // TODO: Change this URL
 
     // url = 'http://localhost:3000/';
-    qResponse.status = "draft";
+    qResponse.status = "completed";
     delete qResponse.id; // Delete any existing ID, will be aded by the server
 
     const toPost = {};
