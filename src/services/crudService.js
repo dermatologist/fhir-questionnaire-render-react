@@ -13,7 +13,7 @@ export default class crudService {
 
   static postResource(url, qResponse) {
     // // url = 'http://hapi.fhir.org/create'; // TODO: Change this URL
-    // url = "create"; // TODO: Change this URL
+    url = "create"; // TODO: Change this URL
     //
     // // url = 'http://localhost:3000/';
     qResponse.status = "completed";
@@ -27,26 +27,27 @@ export default class crudService {
     // return fhirServer.post(url, toPost);
 
     let toReturn = null;
-    const bodyFormData = new FormData();
-    bodyFormData.set('serverId', 'home');
-    bodyFormData.set('resource', 'QuestionnaireResponse');
-    bodyFormData.set('resource-create-id', '');
-    bodyFormData.set('resource-create-body', qResponse);
+    const requestBody = {
+      "serverId": "home",
+      "resource": "QuestionnaireResponse",
+      "resource-create-id": "",
+      "resource-create-body": qResponse
+    };
 
-    axios({
-      method: 'post',
-      url: 'create',
-      data: bodyFormData,
-      config: { headers: {'Content-Type': 'multipart/form-data' }}
-    })
-      .then(response => {
-        // handle success
-        console.log(response);
-        toReturn = response;
+    const config = {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    };
+
+    axios.post(url, requestBody, config)
+      .then((result) => {
+        // Do somthing
+        toReturn = result;
       })
-      .catch(response => {
-        // handle error
-        console.log(response);
+      .catch((err) => {
+        // Do somthing
+        toReturn = err;
       });
     return toReturn;
   }
