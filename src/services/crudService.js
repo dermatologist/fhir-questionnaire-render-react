@@ -31,7 +31,7 @@ export default class crudService {
       "serverId": "home",
       "resource": "QuestionnaireResponse",
       "resource-create-id": "",
-      "resource-create-body": qResponse
+      "resource-create-body": encodeURIComponent(JSON.stringify(qResponse))
     };
 
     const config = {
