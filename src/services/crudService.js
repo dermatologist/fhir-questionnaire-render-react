@@ -1,4 +1,5 @@
 import axios from "axios";
+import qs from 'qs';
 import { fhirServer } from "./crud";
 
 
@@ -26,21 +27,24 @@ export default class crudService {
     // toPost["resource-create-body"] = qResponse;
     // return fhirServer.post(url, toPost);
 
+
+    // https://github.com/axios/axios/issues/362
     let toReturn = null;
     const requestBody = {
-      "serverId": "home",
-      "resource": "QuestionnaireResponse",
-      "resource-create-id": "",
-      "resource-create-body": encodeURIComponent(JSON.stringify(qResponse))
+      serverId: "home",
+      resource: "QuestionnaireResponse",
+      'resource-create-id': "",
+      'resource-create-body': encodeURIComponent(JSON.stringify(qResponse))
     };
 
     const config = {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
-      }
+      },
+      params: requestBody
     };
 
-    axios.post(url, requestBody, config)
+    axios.post(url, qs.stringify(requestBody), config)
       .then((result) => {
         // Do somthing
         toReturn = result;
