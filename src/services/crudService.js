@@ -1,5 +1,5 @@
 import axios from "axios";
-import qs from 'qs';
+import qs from "qs";
 import { fhirServer } from "./crud";
 
 
@@ -32,6 +32,7 @@ export default class crudService {
     let toReturn = null;
     const requestBody = {
       serverId: "home",
+      pretty: true,
       resource: "QuestionnaireResponse",
       'resource-create-id': "",
       'resource-create-body': encodeURIComponent(JSON.stringify(qResponse))
@@ -41,7 +42,6 @@ export default class crudService {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      params: requestBody
     };
 
     axios.post(url, qs.stringify(requestBody), config)
