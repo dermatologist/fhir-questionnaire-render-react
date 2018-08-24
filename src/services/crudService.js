@@ -35,7 +35,7 @@ export default class crudService {
       pretty: true,
       resource: "QuestionnaireResponse",
       'resource-create-id': "",
-      'resource-create-body': encodeURIComponent(JSON.stringify(qResponse))
+      "resource-create-body": JSON.stringify(qResponse)
     };
 
     const config = {
