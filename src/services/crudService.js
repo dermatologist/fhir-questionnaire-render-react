@@ -18,16 +18,13 @@ export default class crudService {
     //
     // // url = 'http://localhost:3000/';
     qResponse.status = "completed";
-    delete qResponse.id; // Delete any existing ID, will be aded by the server
-    //
-    // const toPost = {};
-    // toPost.serverId = "home";
-    // toPost.resource = "QuestionnaireResponse";
-    // toPost["resource-create-id"] = "";
-    // toPost["resource-create-body"] = qResponse;
-    // return fhirServer.post(url, toPost);
-
-
+    if(qResponse.id !== undefined){
+      const originalId = qResponse.id; // Save the original QuestionnaireId as the questionnaire.reference in the response
+      qResponse.questionnare = {};
+      qResponse.questionnare.reference = originalId;
+      delete qResponse.id; // Delete any existing ID, New Id will be added by the server.
+    }
+      
     // https://github.com/axios/axios/issues/362
     let toReturn = null;
     const requestBody = {
