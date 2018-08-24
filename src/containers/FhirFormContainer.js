@@ -16,6 +16,7 @@ class FhirFormContainer extends React.Component {
     // loadForm: PropTypes.func.isRequired,
     renderForm: PropTypes.func.isRequired,
     loadFormFromUrl: PropTypes.func.isRequired,
+    handleSubmitAction: PropTypes.func.isRequired,
     fhirform: PropTypes.shape({
       resources: PropTypes.array,
       fetching: PropTypes.bool,
@@ -27,7 +28,7 @@ class FhirFormContainer extends React.Component {
     }),
     formdata: PropTypes.shape({
       data: PropTypes.object
-    })
+    }),
 
   };
 
@@ -44,7 +45,7 @@ class FhirFormContainer extends React.Component {
     },
     formdata: {
       data: {}
-    }
+    },
   };
 
 
@@ -71,18 +72,27 @@ class FhirFormContainer extends React.Component {
     event.preventDefault();
   };
 
+  handleSubmit = (event) => {
+    this.props.fhirform.singleResource.resourceType = "QuestionnaireResponse";
+
+    // This state value has the URL to submit
+    this.props.handleSubmitAction(this.props.fhirform.singleResource, this.state.value);
+    event.preventDefault();
+  };
+
 
 
   render() {
 
     if (this.props.fhirform.fetched) {
       // This is where the fhirformjs npm module is loaded
-      const items = fhirformjs.fhirformjs(this.props.fhirform.singleResource);
+      const jsonform = fhirformjs.fhirformjs(this.props.fhirform.singleResource);
       // items.forEach((item) => {
       //   this.schema.properties[item.linkId] = item;
       // })
-      this.props.fhirform.schema = items.schema;
-      this.props.fhirform.ui = items.ui;
+      this.props.fhirform.schema = jsonform.schema;
+      this.props.fhirform.ui = jsonform.ui;
+      this.props.formdata.data = jsonform.data;
       this.props.renderForm(this.props.formdata.data, this.props.fhirform.schema, this.props.fhirform.ui);
     }
 
@@ -101,6 +111,12 @@ class FhirFormContainer extends React.Component {
 
 
         <JsonForms/>
+
+        <button
+          className="btn btn-default"
+          onClick={this.handleSubmit}>Submit Form
+        </button>
+
       </div>
 
     )
@@ -114,6 +130,7 @@ const mapStateToProps = createStructuredSelector({
     // https://github.com/reactjs/reselect#motivation-for-memoized-selectors
   ),
 });
+
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(FhirFormActions, dispatch)

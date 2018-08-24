@@ -3,9 +3,9 @@
 
 ![FHIR Render Questionnaire](https://raw.github.com/dermatologist/fhir-questionnaire-render-react/develop/docs/fhir-render.png)
 
-This is a FHIR Questionnaire form rendering engine using react and redux. This is still work in progress. A helping hand would be greatly appreciated. 
+## About
 
-We use  react-jsonschema-form ( https://github.com/mozilla-services/react-jsonschema-form ) for form rendering.
+This is a FHIR Questionnaire form rendering engine using react and redux. This is still work in progress. A helping hand would be greatly appreciated. We use  [jsonForms]( https://jsonforms.io/ ) for form rendering from a json schema. The npm module for converting a FHIR Questionnaire to json schema is work in progress [here](https://github.com/dermatologist/fhirformjs). The Submission is a FHIR QuestionnaireResponse to any FHIR compliant server. You may spin up a FHIR server using [this repo](https://github.com/dermatologist/fhirql).
 
 This project was generated with [Create Redux App](https://github.com/jonidelv/generator-create-redux-app). Refer to `docs/create-redux-app` to find more information on how to perform common tasks.
 
