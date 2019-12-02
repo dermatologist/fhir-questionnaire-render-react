@@ -6,7 +6,7 @@
   "dependencies": {
     "@jsonforms/core": "^2.0.7",
     "@jsonforms/material-renderers": "^2.0.7",
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "fhirformjs": "github:dermatologist/fhirformjs#develop",
     "prop-types": "^15.6.0",
     "react": "^16.4.2",
