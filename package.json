@@ -39,7 +39,7 @@
     "lint-staged": "^4.3.0",
     "node-plop": "^0.5.5",
     "plop": "^1.7.4",
-    "prettier": "^1.8.0",
+    "prettier": "^2.1.2",
     "redux-logger": "^3.0.6"
   },
   "scripts": {
