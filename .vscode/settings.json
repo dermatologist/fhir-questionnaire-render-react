@@ -1,0 +1,15 @@
+{
+        "files.watcherExclude": {
+            "**/.eggs/**": true,
+            "**/.pytest_cache/**": true,
+            "**/__pycache__/**": true,
+            "**/.tox/**": true,
+            "**/data/**": true,
+            "**/node_modules/.*/**": true,
+            "**/node_modules/*/**": true,
+            "**/build/*/**": true,
+            "**/public/*/**": true,
+            "**/.venv/**": true,
+            "**/conda/**": true
+        }
+}

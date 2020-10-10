@@ -1,68 +1,39 @@
 {
-  "name": "fhir-questionnaire-render-react",
-  "description": "Rendering engine for FHIR questionnaires using react and redux",
+  "name": "fhirform-react",
   "version": "0.1.0",
-  "author": "Bell Eapen",
+  "private": true,
   "dependencies": {
-    "@jsonforms/core": "^2.0.7",
-    "@jsonforms/material-renderers": "^2.0.7",
-    "axios": "^0.17.1",
-    "fhirformjs": "github:dermatologist/fhirformjs#develop",
-    "prop-types": "^15.6.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-jsonschema-form": "^1.0.0",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.1.4",
-    "recompose": "^0.26.0",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-promise-middleware": "^5.0.0",
-    "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1",
-    "qs": "^6.5.2",
-    "styled-components": "^2.3.0"
-  },
-  "devDependencies": {
-    "axios-mock-adapter": "^1.12.0",
-    "babel-eslint": "^8.0.2",
-    "eslint": "^4.10.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-config-prettier": "^2.7.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-react": "^7.4.0",
-    "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
-    "node-plop": "^0.5.5",
-    "plop": "^1.7.4",
-    "prettier": "^1.8.0",
-    "redux-logger": "^3.0.6"
+    "@rjsf/core": "^2.4.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.20.0",
+    "fhirformjs": "^0.5.2",
+    "jsoneditor": "^9.1.1",
+    "jsoneditor-react": "^3.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=8085 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "prettier": "prettier --single-quote --print-width=120 --trailing-comma es5 --no-semi",
-    "format": "npm run prettier -- --write '{,!(build|generators)/**/}*.js'",
-    "precommit": "lint-staged",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "lint": "eslint **/*.js --quiet",
-    "lint-fix": "eslint --fix",
-    "generate": "plop --plopfile generators/index.js"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "lint-staged": {
-    "{,!(build|generators)/**/}*.js": [
-      "npm run prettier -- --write",
-      "git add"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
-  },
-  "engines": {
-    "npm": ">=4",
-    "node": ">=6"
   }
 }
