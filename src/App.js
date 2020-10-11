@@ -1,12 +1,12 @@
 import React, { useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Form from "@rjsf/core";
 // import axios from 'axios';
 import { FhirJsonForm, FhirJsonResp } from 'fhirformjs'
 import { Testq1 } from './testq1';
 import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   const [schema, setData] = useState(Testq1);
@@ -49,6 +49,7 @@ function App() {
         formData={formData}
         onSubmit={e => handleSubmit(e.formData)}
         />
+        <h2>Edit FHIR Questionnaire below (Change IDs if you duplicate an element)</h2>
         <Editor
           value={schema}
           onChange={e => handleChange(e)}

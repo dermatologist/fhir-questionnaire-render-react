@@ -1,6 +1,8 @@
 {
-  "name": "fhirform-react",
-  "version": "0.1.0",
+  "name": "fhir-questionnaire-render-react",
+  "description": "Rendering engine for FHIR questionnaires using react and FHIRFormJS",
+  "version": "3.0.0",
+  "author": "Bell Eapen",
   "private": true,
   "dependencies": {
     "@rjsf/core": "^2.4.0",
@@ -16,7 +18,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "PORT=8085 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
