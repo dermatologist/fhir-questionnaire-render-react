@@ -13,7 +13,7 @@
     "fhirformjs": "^0.5.2",
     "jsoneditor": "^9.1.1",
     "jsoneditor-react": "^3.0.1",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
