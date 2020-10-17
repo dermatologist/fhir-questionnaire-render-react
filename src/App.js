@@ -2,14 +2,14 @@ import React, { useState} from 'react';
 import Form from "@rjsf/core";
 // import axios from 'axios';
 import { FhirJsonForm, FhirJsonResp } from 'fhirformjs'
-import { Testq1 } from './testq1';
+import { TestQuestionnaire1 } from './testQuestionnaire1';
 import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [schema, setData] = useState(Testq1);
+  const [schemaState, setData] = useState(TestQuestionnaire1);
 
   // You may be fetching data from an endpoint as below
 
@@ -34,7 +34,7 @@ function App() {
   let formData = {}
   let respData = {}
   function handleSubmit(data){
-    respData = FhirJsonResp(JSON.parse(FhirJsonForm(schema)).model, data)
+    respData = FhirJsonResp(FhirJsonForm(schemaState).model, data)
     console.log(respData)
   }
   function handleChange(data) {
@@ -44,14 +44,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Form schema={JSON.parse(FhirJsonForm(schema)).schema} 
-          uiSchema={JSON.parse(FhirJsonForm(schema)).uischema}
+        <Form schema={FhirJsonForm(schemaState).schema} 
+          uiSchema={FhirJsonForm(schemaState).uiSchema}
         formData={formData}
         onSubmit={e => handleSubmit(e.formData)}
         />
         <h2>Edit FHIR Questionnaire below (Change IDs if you duplicate an element)</h2>
         <Editor
-          value={schema}
+          value={schemaState}
           onChange={e => handleChange(e)}
         />
       </header>
