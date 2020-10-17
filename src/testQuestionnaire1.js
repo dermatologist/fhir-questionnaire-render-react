@@ -1,4 +1,4 @@
-export const Testq1 = {
+export const TestQuestionnaire1 = {
     resourceType: 'Questionnaire',
     id: 'f201',
     text: {
