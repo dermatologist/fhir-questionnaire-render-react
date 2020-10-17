@@ -11,5 +11,10 @@
             "**/public/*/**": true,
             "**/.venv/**": true,
             "**/conda/**": true
-        }
+        },
+        "cSpell.words": [
+            "Fhir",
+            "fhirformjs",
+            "jsoneditor"
+        ]
 }
