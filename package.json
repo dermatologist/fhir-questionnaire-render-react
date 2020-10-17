@@ -1,7 +1,7 @@
 {
   "name": "fhir-questionnaire-render-react",
   "description": "Rendering engine for FHIR questionnaires using react and FHIRFormJS",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "author": "Bell Eapen",
   "private": true,
   "dependencies": {
