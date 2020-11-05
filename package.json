@@ -6,16 +6,16 @@
   "private": true,
   "dependencies": {
     "@rjsf/core": "^2.4.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.20.0",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
+    "axios": "^0.21.0",
     "fhirformjs": "^0.6.0",
     "jsoneditor": "^9.1.1",
     "jsoneditor-react": "^3.0.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
