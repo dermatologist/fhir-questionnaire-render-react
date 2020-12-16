@@ -12,7 +12,7 @@
     "axios": "^0.21.0",
     "fhirformjs": "^0.6.0",
     "jsoneditor": "^9.1.5",
-    "jsoneditor-react": "^3.0.1",
+    "jsoneditor-react": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0"
