@@ -7,7 +7,7 @@
 This is an example React app that demonstrates the use of [FHIRFormJS](https://github.com/dermatologist/fhirformjs) to render a *FHIR Questionnaire* as a form. A JSON editor is added for real-time editing of the *Questionnaire*.The Submission is a *FHIR QuestionnaireResponse* to any FHIR compliant server. You may spin up a FHIR server using [this repo](https://github.com/dermatologist/fhirql).
 
 ## Contributor(s)
-* [Bell Eapen](https://nuchange.ca)
+* [Bell Eapen](https://nuchange.ca) | [![Twitter Follow](https://img.shields.io/twitter/follow/beapen?style=social)](https://twitter.com/beapen)
 
 ## Demo
 
@@ -22,4 +22,3 @@ npm install
 npm start
 ```
 * See src/App.js for FHIRFormJS usage example.
-* [![Twitter Follow](https://img.shields.io/twitter/follow/beapen?style=social)](https://twitter.com/beapen)
