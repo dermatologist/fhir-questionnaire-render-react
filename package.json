@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
     "fhirformjs": "^0.6.0",
-    "jsoneditor": "^9.1.8",
+    "jsoneditor": "^9.1.9",
     "jsoneditor-react": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
