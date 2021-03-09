@@ -5,7 +5,7 @@
   "author": "Bell Eapen",
   "private": true,
   "dependencies": {
-    "@rjsf/core": "^2.4.2",
+    "@rjsf/core": "^2.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
