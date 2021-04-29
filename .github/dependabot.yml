@@ -1,0 +1,28 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: fhirformjs
+    versions:
+    - 0.7.0
+  - dependency-name: jsoneditor
+    versions:
+    - 9.4.0
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 13.0.0
+    - 13.0.1
+    - 13.0.10
+    - 13.0.14
+    - 13.0.6
+    - 13.0.8
+    - 13.1.0
+    - 13.1.2
+  - dependency-name: react-test-renderer
+    versions:
+    - 17.0.2
