@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "@rjsf/core": "^4.2.3",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.4.1",
     "axios": "^0.27.2",
